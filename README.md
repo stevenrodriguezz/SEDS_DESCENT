@@ -1,4 +1,4 @@
-# DARL ( Dynamic Analysis for Rocket Landing )
+# DESCENT ( Dynamic Evaluation for Safe Calculation of Endpoint Navigation Trajectories )
 
 
 
