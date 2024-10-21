@@ -1,4 +1,6 @@
-from Rocket.parameters import *
+from Rocket.rocket_parameters import *
 from Motor.motor_parameters import *
 
-print(RMS_98_7680.grain_density)
+RMS_98_7680.info()
+Rocket_2023.plots.static_margin()
+Rocket_2023.draw()
