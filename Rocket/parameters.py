@@ -1,4 +1,4 @@
-from rocketpy import Environment,Rocket, Motor, SolidMotor, Flight
+from rocketpy import Rocket
 
 COORDINATE_ORIENTATION = "nose_to_tail"
 
@@ -7,8 +7,8 @@ rocket_2023_params = {
     "radius": 0.0785,
     "mass": 21,
     "inertia": (6.321, 6.321, 0.064),
-    "power_off_drag": "/home/stevenchurro/SEDS_DESCENT/powerOffDragCurve.csv",  # Right click file and click Copy Path and insert here
-    "power_on_drag": "/home/stevenchurro/SEDS_DESCENT/powerOnDragCurve.csv",
+    "power_off_drag": "/home/stevenchurro/SEDS_DESCENT/Files/powerOffDragCurve.csv",  # Right click file and click Copy Path and insert here
+    "power_on_drag": "/home/stevenchurro/SEDS_DESCENT/Files/powerOnDragCurve.csv",
     "center_of_mass_without_motor": 1.46,
     "coordinate_system_orientation": COORDINATE_ORIENTATION
 }
@@ -61,12 +61,19 @@ drogue_chute_params = {
     "noise" : (0, 8.3, 0.5)
 }
 
-
+rail_button_params = {
+    "upper_button_position": 2.1738,  # (Length of rocket - Rail buttoms from bottom parent)
+    "lower_button_position": 3.0628,  # Rocketpy: 0.6182
+    "angular_position": 45          # Rocketpy: 60
+}
 
 
 Rocket_2023 = Rocket(**rocket_2023_params)
+
 NoseCone_2023 = Rocket_2023.add_nose(**nose_2023_params)
 TrapezoidalFins_2023 = Rocket_2023.add_trapezoidal_fins(**fins_2023_params)
 Main_Parachute_2023 = Rocket_2023.add_parachute(**main_chute_params)
 Drogue_Parachute_2023 = Rocket_2023.add_parachute(**drogue_chute_params)
+Rail_Buttons_2023 = Rocket_2023.set_rail_buttons(**rail_button_params)
+
 
